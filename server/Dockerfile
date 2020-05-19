@@ -1,0 +1,9 @@
+FROM node:12.16-alpine
+
+WORKDIR /app
+
+RUN apk add --update --no-cache git bash yarn nano
+
+RUN npm install
+
+CMD npm start
