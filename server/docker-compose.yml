@@ -26,6 +26,8 @@ services:
       - fuseki
     networks:
       - semapps
+    links:
+      - fuseki
     ports:
       - "3000:3000"
     expose:
