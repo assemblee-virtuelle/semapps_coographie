@@ -16,22 +16,7 @@ services:
       - semapps
     environment:
       ADMIN_PASSWORD: "admin"
-  middleware:
-    build:
-      context: ./
-      dockerfile: Dockerfile
-    container_name: middleware
-    restart: always
-    depends_on:
-      - fuseki
-    networks:
-      - semapps
-    links:
-      - fuseki
-    ports:
-      - "3000:3000"
-    expose:
-      - "3000"
+
 
 volumes:
   rdf_data:
