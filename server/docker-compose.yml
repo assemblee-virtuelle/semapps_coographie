@@ -6,8 +6,8 @@ services:
     container_name: fuseki
     restart: always
     volumes:
-      - rdf_data:/fuseki
-      - staging:/staging
+      - ../data/fuseki:/fuseki
+      - ../data/staging:/staging
     ports:
       - "3030:3030"
     expose:
