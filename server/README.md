@@ -1,6 +1,6 @@
 [![SemApps](https://badgen.net/badge/Powered%20by/SemApps/28CDFB)](https://semapps.org)
 
-# server
+# Coographie
 This is a [SemApps](https://semapps.org/)-based semantic application
 
 ## Quick start
