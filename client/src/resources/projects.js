@@ -23,7 +23,7 @@ export const ProjectList = props => {
   return (
     <List title="Projets" perPage={25} filters={<SearchFilter />} {...props}>
       <Datagrid rowClick="edit">
-        <TextField source="rdfs:label" label="Nom" />
+        <TextField source="pair:label" label="Nom" />
         <EditButton basePath="/Project" />
       </Datagrid>
     </List>
@@ -31,13 +31,13 @@ export const ProjectList = props => {
 };
 
 const ProjectTitle = ({ record }) => {
-  return <span>Projet {record ? `"${record['rdfs:label']}"` : ''}</span>;
+  return <span>Projet {record ? `"${record['pair:label']}"` : ''}</span>;
 };
 
 export const ProjectEdit = props => (
   <Edit title={<ProjectTitle />} {...props}>
     <SimpleForm>
-      <TextInput source="rdfs:label" label="Nom" fullWidth />
+      <TextInput source="pair:label" label="Nom" fullWidth />
       <TextInput source="pair:comment" label="Commentaire" fullWidth />
       <MarkdownInput multiline source="pair:description" label="Description" fullWidth />
       <UriInput source="pair:homePage" label="Site web" fullWidth />
@@ -48,10 +48,10 @@ export const ProjectEdit = props => (
             // TODO improve the handling of the many possible cases
             if (!record) return 'Label manquant';
             if (record['rdf:type'] === 'pair:Organization' || record['@type'] === 'pair:Organization') {
-              if (Array.isArray(record['rdfs:label'])) {
-                return record['rdfs:label'][0];
+              if (Array.isArray(record['pair:label'])) {
+                return record['pair:label'][0];
               } else {
-                return record['rdfs:label'] || 'Label manquant';
+                return record['pair:label'] || 'Label manquant';
               }
             }else{
               return `${record['pair:firstName']} ${record['pair:lastName']}` || 'Label manquant';
@@ -74,7 +74,7 @@ export const ProjectEdit = props => (
 export const ProjectCreate = props => (
   <Create title="Créer un projet" {...props}>
     <SimpleForm>
-      <TextInput source="rdfs:label" label="Nom" />
+      <TextInput source="pair:label" label="Nom" />
       <MarkdownInput multiline source="pair:description" label="Description" fullWidth />
       <UriInput source="pair:homePage" label="Site web" />
     </SimpleForm>

@@ -10,7 +10,7 @@ export const SkillList = props => {
   return (
     <List title="Compétences" perPage={25} {...props}>
       <Datagrid>
-        <StringField source="rdfs:label" label="Nom" />
+        <StringField source="pair:label" label="Nom" />
       </Datagrid>
     </List>
   );
