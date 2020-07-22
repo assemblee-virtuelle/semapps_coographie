@@ -11,7 +11,7 @@ const resources = {
     types: ['pair:Person'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'resources'
   },
-  Concept: {
+  Thema: {
     types: ['pair:Thema'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'resources'
   },

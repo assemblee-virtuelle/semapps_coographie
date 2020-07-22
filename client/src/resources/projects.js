@@ -61,9 +61,12 @@ export const ProjectEdit = props => (
           fullWidth
         />
       </JsonLdReferenceInput>
-      <JsonLdReferenceInput label="Intérêts" reference="Concept" source="pair:hasInterest">
+      <JsonLdReferenceInput label="Intérêts" reference="Thema" source="pair:hasInterest">
         <AutocompleteArrayInput
-          optionText={record => (record && record['skos:prefLabel']['@value']) || 'LABEL MANQUANT'}
+          optionText={record =>{
+            console.log(record);
+            return(record && record['pair:label']) || 'LABEL MANQUANT'}
+          }
           fullWidth
         />
       </JsonLdReferenceInput>

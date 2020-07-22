@@ -41,7 +41,7 @@ export const OrganizationEdit = props => (
       <TextInput source="pair:adressLine2" label="Adresse (suite)" fullWidth />
       <JsonLdReferenceInput label="Responsables" reference="Person" source="pairv1:hasResponsible">
         <AutocompleteArrayInput
-          optionText={record => `${record['foaf:givenName']} ${record['foaf:familyName']}`}
+          optionText={record => `${record['pair:firstName']} ${record['pair:lastName']}`}
           fullWidth
         />
       </JsonLdReferenceInput>
@@ -54,14 +54,14 @@ export const OrganizationEdit = props => (
       <JsonLdReferenceInput label="Partenaires" reference="Agent" source="pair:isPartnerOf">
         <AutocompleteArrayInput
           optionText={record =>
-            (record && (record['pair:label'] || record['foaf:givenName'])) || 'LABEL MANQUANT'
+            (record && `${record['pair:firstName']} ${record['pair:lastName']}`) || 'LABEL MANQUANT'
           }
           fullWidth
         />
       </JsonLdReferenceInput>
-      <JsonLdReferenceInput label="Intérêts" reference="Concept" source="pair:hasInterest">
+      <JsonLdReferenceInput label="Intérêts" reference="Thema" source="pair:hasInterest">
         <AutocompleteArrayInput
-          optionText={record => (record && record['skos:prefLabel']['@value']) || 'LABEL MANQUANT'}
+          optionText={record => (record && record['pair:label']) || 'LABEL MANQUANT'}
           fullWidth
         />
       </JsonLdReferenceInput>
