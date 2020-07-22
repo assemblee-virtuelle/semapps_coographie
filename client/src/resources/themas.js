@@ -2,7 +2,6 @@ import React from 'react';
 import {
   List,
   Datagrid,
-  useAuthenticated,
   Edit,
   Create,
   SimpleForm,

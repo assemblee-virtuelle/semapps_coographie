@@ -8,7 +8,6 @@ import {
   TextField,
   EditButton,
   TextInput,
-  useAuthenticated,
   AutocompleteArrayInput
 } from 'react-admin';
 import MarkdownInput from 'ra-input-markdown';
@@ -19,7 +18,6 @@ import SearchFilter from '../components/SearchFilter';
 export const ProjectIcon = SettingsIcon;
 
 export const ProjectList = props => {
-  useAuthenticated();
   return (
     <List title="Projets" perPage={25} filters={<SearchFilter />} {...props}>
       <Datagrid rowClick="edit">

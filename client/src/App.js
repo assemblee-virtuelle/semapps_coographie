@@ -19,7 +19,6 @@ function App() {
         resources,
         ontologies
       })}
-      authProvider={authProvider(process.env.REACT_APP_MIDDLEWARE_URL)}
       logoutButton={LogoutButton}
     >
       <Resource

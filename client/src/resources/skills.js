@@ -2,7 +2,6 @@ import React from 'react';
 import {
   List,
   Datagrid,
-  useAuthenticated,
   Edit,
   Create,
   SimpleForm,
@@ -20,7 +19,6 @@ const SkillTitle = ({ record }) => {
 };
 
 export const SkillList = props => {
-  useAuthenticated();
   return (
     <List title="Compétences" perPage={25} {...props}>
       <Datagrid>
@@ -32,7 +30,6 @@ export const SkillList = props => {
 };
 
 export const SkillEdit = props => {
-  useAuthenticated();
   return (
     <Edit title={<SkillTitle />} {...props}>
       <SimpleForm>
