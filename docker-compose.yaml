@@ -1,13 +1,11 @@
 version: '3.5'
-
 services:
   fuseki:
     image: stain/jena-fuseki:3.10.0
     container_name: fuseki-coographie
-    restart: always
     volumes:
-      - ../data/fuseki:/fuseki
-      - ../data/staging:/staging
+      - ./data/fuseki:/fuseki
+      - ./data/staging:/staging
     ports:
       - "3030:3030"
     expose:
@@ -19,14 +17,13 @@ services:
 
   middleware:
     build:
-      context: ./
+      context: ./server
       dockerfile: Dockerfile
-    container_name: semapps-coographie
-    restart: always
+    container_name: middleware-coographie
     depends_on:
       - fuseki
     volumes:
-      - ./:/app
+      - ./server/:/app
     networks:
       - semapps
     ports:
@@ -35,11 +32,23 @@ services:
       - "3000"
     command: bash -c "npm install && npm start"
 
+  frontend:
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    container_name: frontend-coographie
+    environment:
+      - PORT=5000
+    volumes:
+      - ./client:/app
+    networks:
+      - semapps
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    command: bash -c "npm rebuild && npm install && npm run bootstrap && npm start"
 
-
-volumes:
-  rdf_data:
-  staging:
 networks:
   semapps:
     name: semapps_network
