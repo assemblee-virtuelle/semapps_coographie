@@ -20,7 +20,6 @@ const ThemaTitle = ({ record }) => {
 };
 
 export const ThemaList = props => {
-  useAuthenticated();
   return (
     <List title="themes" perPage={25} {...props}>
       <Datagrid>
@@ -32,7 +31,6 @@ export const ThemaList = props => {
 };
 
 export const ThemaEdit = props => {
-  useAuthenticated();
   return (
     <Edit title={<ThemaTitle />} {...props}>
       <SimpleForm>
