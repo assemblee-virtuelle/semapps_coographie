@@ -7,6 +7,6 @@ module.exports = {
     baseUrl: process.env.SEMAPPS_HOME_URL,
     ontologies,
     containers: ['/resources'],
-    defaultJsonContext: 'https://gist.githubusercontent.com/srosset81/cc330b63a213e6f68eb5e52d6ded4342/raw/1ca1cbf87027072503216df68892864757cb0db7/pair-ontology.json'
+    defaultJsonContext: 'https://gist.githubusercontent.com/srosset81/cc330b63a213e6f68eb5e52d6ded4342/raw/7418e256c64685d44607f333e49489afb302a0b6/pair-ontology.json'
   }
 };
