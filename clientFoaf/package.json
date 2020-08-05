@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "coographie-client-foaf",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,12 +8,12 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "jwt-decode": "^2.2.0",
+    "lerna": "^3.19.0",
     "ra-input-markdown": "^1.1.5",
     "react": "^16.13.1",
     "react-admin": "^3.5.2",
     "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.0",
-    "lerna": "^3.19.0"
+    "react-scripts": "^3.4.0"
   },
   "scripts": {
     "bootstrap": "lerna bootstrap",
