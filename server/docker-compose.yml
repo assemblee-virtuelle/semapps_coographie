@@ -3,7 +3,7 @@ version: '3.5'
 services:
   fuseki:
     image: stain/jena-fuseki:3.10.0
-    container_name: fuseki
+    container_name: fuseki-coographie
     restart: always
     volumes:
       - ../data/fuseki:/fuseki
@@ -21,16 +21,20 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    container_name: middleware
+    container_name: semapps-coographie
     restart: always
     depends_on:
       - fuseki
+    volumes:
+      - ./:/app
     networks:
       - semapps
     ports:
       - "3000:3000"
     expose:
       - "3000"
+    command: bash -c "npm install && npm start"
+
 
 volumes:
   rdf_data:
