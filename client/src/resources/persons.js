@@ -4,14 +4,12 @@ import { List,
   TextField,
   useAuthenticated,
   Edit,
-  Create,
   SimpleForm,
   EditButton,
   TextInput,
   AutocompleteArrayInput } from 'react-admin';
 import Icon from '@material-ui/icons/Person';
-import MarkdownInput from 'ra-input-markdown';
-import { JsonLdReferenceInput, UriInput } from '@semapps/react-admin';
+import { JsonLdReferenceInput } from '@semapps/react-admin';
 import SearchFilter from '../components/SearchFilter';
 
 export const PersonIcon = Icon;

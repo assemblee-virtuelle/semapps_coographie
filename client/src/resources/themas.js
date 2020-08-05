@@ -3,14 +3,13 @@ import {
   List,
   Datagrid,
   Edit,
-  Create,
   SimpleForm,
   EditButton,
   TextInput,
   AutocompleteArrayInput} from 'react-admin';
 import Icon from '@material-ui/icons/EmojiObjects';
 import { StringField } from '@semapps/react-admin';
-import { JsonLdReferenceInput, UriInput } from '@semapps/react-admin';
+import { JsonLdReferenceInput } from '@semapps/react-admin';
 
 export const ThemaIcon = Icon;
 
