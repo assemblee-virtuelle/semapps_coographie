@@ -10,11 +10,6 @@
     "url": "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   },
   {
-    "prefix": "rdfs",
-    "owl": "",
-    "url": "http://www.w3.org/2000/01/rdf-schema#"
-  },
-  {
     "prefix": "ldp",
     "owl": "",
     "url": "http://www.w3.org/ns/ldp#"
@@ -32,7 +27,8 @@
   {
     "prefix": "pair",
     "owl": "",
-    "url": "http://virtual-assembly.org/ontologies/pair#"
+    "url": "http://virtual-assembly.org/ontologies/pair#",
+    "context": "https://gist.githubusercontent.com/srosset81/cc330b63a213e6f68eb5e52d6ded4342/raw/7418e256c64685d44607f333e49489afb302a0b6/pair-ontology.json"
   },
   {
     "prefix": "pairv1",

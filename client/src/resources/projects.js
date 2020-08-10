@@ -51,20 +51,19 @@ export const ProjectEdit = props => (
               } else {
                 return record['pair:label'] || 'Label manquant';
               }
-            }else{
+            } else {
               return `${record['pair:firstName']} ${record['pair:lastName']}` || 'Label manquant';
             }
-
           }}
           fullWidth
         />
       </JsonLdReferenceInput>
       <JsonLdReferenceInput label="Intérêts" reference="Thema" source="pair:hasInterest">
         <AutocompleteArrayInput
-          optionText={record =>{
+          optionText={record => {
             console.log(record);
-            return(record && record['pair:label']) || 'LABEL MANQUANT'}
-          }
+            return (record && record['pair:label']) || 'LABEL MANQUANT';
+          }}
           fullWidth
         />
       </JsonLdReferenceInput>

@@ -60,10 +60,7 @@ export const OrganizationEdit = props => (
         />
       </JsonLdReferenceInput>
       <JsonLdReferenceInput label="Intérêts" reference="Thema" source="pair:hasInterest">
-        <AutocompleteArrayInput
-          optionText={record => (record && record['pair:label']) || 'LABEL MANQUANT'}
-          fullWidth
-        />
+        <AutocompleteArrayInput optionText={record => (record && record['pair:label']) || 'LABEL MANQUANT'} fullWidth />
       </JsonLdReferenceInput>
     </SimpleForm>
   </Edit>

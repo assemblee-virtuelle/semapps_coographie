@@ -1,22 +1,25 @@
 {
-  "name": "coographie-client",
-  "version": "0.1.0",
+  "name": "dms",
+  "version": "0.1.4",
   "private": true,
   "dependencies": {
-    "@semapps/react-admin": "^0.1.4",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
+    "@semapps/react-admin": "0.1.4",
     "jwt-decode": "^2.2.0",
-    "lerna": "^3.19.0",
+    "prop-types": "^15.7.2",
     "ra-input-markdown": "^1.1.5",
+    "ra-language-french": "^3.7.1",
+    "react-markdown": "^4.3.1",
     "react": "^16.13.1",
-    "react-admin": "^3.5.2",
-    "react-dom": "^16.13.1",
-    "react-scripts": "^3.4.0"
+    "react-admin": "^3.7.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react-scripts": "3.4.0"
   },
   "scripts": {
-    "bootstrap": "lerna bootstrap",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

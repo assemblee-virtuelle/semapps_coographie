@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  List,
-  Datagrid,
-  Edit,
-  SimpleForm,
-  EditButton,
-  TextInput,
-  AutocompleteArrayInput} from 'react-admin';
+import { List, Datagrid, Edit, SimpleForm, EditButton, TextInput, AutocompleteArrayInput } from 'react-admin';
 import Icon from '@material-ui/icons/EmojiObjects';
 import { StringField } from '@semapps/react-admin';
 import { JsonLdReferenceInput } from '@semapps/react-admin';
@@ -35,7 +28,10 @@ export const ThemaEdit = props => {
         <TextInput source="pair:label" label="Nom" />
         <JsonLdReferenceInput label="interet de" reference="Person" source="pair:interestOf">
           <AutocompleteArrayInput
-            optionText={record =>{console.log(record);return (record && `${record['pair:firstName']} ${record['pair:lastName']}`) || 'LABEL MANQUANT'}}
+            optionText={record => {
+              console.log(record);
+              return (record && `${record['pair:firstName']} ${record['pair:lastName']}`) || 'LABEL MANQUANT';
+            }}
             fullWidth
           />
         </JsonLdReferenceInput>

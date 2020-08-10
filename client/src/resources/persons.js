@@ -1,5 +1,6 @@
 import React from 'react';
-import { List,
+import {
+  List,
   Datagrid,
   TextField,
   useAuthenticated,
@@ -7,7 +8,8 @@ import { List,
   SimpleForm,
   EditButton,
   TextInput,
-  AutocompleteArrayInput } from 'react-admin';
+  AutocompleteArrayInput
+} from 'react-admin';
 import Icon from '@material-ui/icons/Person';
 import { JsonLdReferenceInput } from '@semapps/react-admin';
 import SearchFilter from '../components/SearchFilter';
@@ -37,7 +39,7 @@ export const PersonEdit = props => {
     <Edit title={<PersonTitle />} {...props}>
       <SimpleForm>
         <TextInput source="pair:firstName" label="Prénom" />
-        <TextInput source="pair:lastName" label="Nom de famille"/>
+        <TextInput source="pair:lastName" label="Nom de famille" />
         <JsonLdReferenceInput label="Intérêts" reference="Thema" source="pair:hasInterest">
           <AutocompleteArrayInput
             optionText={record => (record && record['pair:label']) || 'LABEL MANQUANT'}
@@ -62,7 +64,6 @@ export const PersonEdit = props => {
             fullWidth
           />
         </JsonLdReferenceInput>
-
       </SimpleForm>
     </Edit>
   );
