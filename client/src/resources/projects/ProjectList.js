@@ -3,7 +3,7 @@ import { List, SimpleList } from 'react-admin';
 import { ResourceTabs } from '../../archipelago-layout';
 
 const ProjectList = props => (
-  <List title="Projets" perPage={25} {...props}>
+  <List title="Projets" perPage={50} {...props}>
     <>
       <ResourceTabs />
       <SimpleList
