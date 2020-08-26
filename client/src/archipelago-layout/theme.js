@@ -36,17 +36,6 @@ const theme = createMuiTheme({
         marginBottom: 0
       }
     },
-    MuiListItem: {
-      root: {
-        padding: 15,
-        paddingBottom: 15,
-        paddingTop: 15,
-        marginBottom: 10,
-        borderStyle: 'solid',
-        borderColor: '#e0e0e0',
-        borderWidth: 1
-      }
-    },
     MuiTab: {
       labelIcon: {
         paddingTop: 0

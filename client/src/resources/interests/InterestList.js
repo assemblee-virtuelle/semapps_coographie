@@ -1,17 +1,12 @@
 import React from 'react';
-import { List, SimpleList } from 'react-admin';
-import { ResourceTabs } from '../../archipelago-layout';
+import { List, SimpleList } from '../../archipelago-layout';
 
 const InterestList = props => (
-  <List title="Compétences" perPage={50} {...props}>
-    <>
-      <ResourceTabs />
-      <SimpleList
-        primaryText={record => record['pair:label']}
-        leftAvatar={() => <img src={process.env.PUBLIC_URL + '/av.png'} width="100%" alt="Assemblée virtuelle" />}
-        linkType="edit"
-      />
-    </>
+  <List {...props}>
+    <SimpleList
+      primaryText={record => record['pair:label']}
+      leftAvatar={() => <img src={process.env.PUBLIC_URL + '/av.png'} width="100%" alt="Assemblée virtuelle" />}
+    />
   </List>
 );
 
