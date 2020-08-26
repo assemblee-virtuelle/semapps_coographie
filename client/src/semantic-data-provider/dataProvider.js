@@ -24,7 +24,7 @@ const computeSparqlQuery = ({ types, params: { query, pagination, sort, filter }
         SELECT ?s1
         WHERE {
           ?s1 ?p1 ?o1 .
-          FILTER regex(lcase(str(?o1)), "${filter.q}")
+          FILTER regex(lcase(str(?o1)), "${filter.q.toLowerCase()}")
           FILTER NOT EXISTS {?s1 a ?o1}
         }
       }
