@@ -1,12 +1,19 @@
-export { default as Column } from './Column/Column';
-export { default as ColumnShowLayout } from './ColumnShowLayout';
-export { default as EditActions } from './EditActions';
-export { default as GridList } from './GridList';
-export { default as Hero } from './Hero/Hero';
-export { default as Layout } from './Layout/Layout';
-export { default as List } from './List/List';
-export { default as ResourceTabs } from './List/ResourceTabs';
-export { default as ShowActions } from './ShowActions';
-export { default as theme } from './theme';
-export { default as UserIcon } from './UserIcon';
-export { default as SimpleList } from './SimpleList';
+// General layout
+export { default as Layout } from './layout/Layout/Layout';
+export { default as theme } from './layout/theme';
+
+// Edit page
+export { default as EditActions } from './edit/EditActions';
+
+// List page
+export { default as List } from './list/List';
+export { default as ResourceTabs } from './list/ResourceTabs';
+export { default as SimpleList } from './list/SimpleList';
+
+// Show page
+export { default as Column } from './show/Column/Column';
+export { default as ColumnShowLayout } from './show/ColumnShowLayout';
+export { default as GridList } from './show/GridList';
+export { default as Hero } from './show/Hero/Hero';
+export { default as ShowActions } from './show/ShowActions';
+export { default as UserIcon } from './show/UserIcon';
