@@ -3,7 +3,7 @@ import { List as RaList } from 'react-admin';
 import ResourceTabs from "./ResourceTabs";
 
 const List = ({ children, ...otherProps }) => (
-  <RaList perPage={50} {...otherProps}>
+  <RaList sort={{ field: 'pair:label', order: 'DESC' }} perPage={25} {...otherProps}>
     <>
       <ResourceTabs />
       {children}
