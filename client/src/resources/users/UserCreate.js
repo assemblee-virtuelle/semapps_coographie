@@ -1,11 +1,12 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput } from 'react-admin';
+import { SimpleForm, TextInput } from 'react-admin';
+import { Create } from "../../archipelago-layout";
 
 const UserCreate = props => (
-  <Create title="Créer un utilisateur" {...props}>
+  <Create {...props}>
     <SimpleForm>
-      <TextInput source="pair:firstName" label="Prénom" />
-      <TextInput source="pair:lastName" label="Nom de famille" />
+      <TextInput source="pair:firstName" label="Prénom" fullWidth />
+      <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
     </SimpleForm>
   </Create>
 );

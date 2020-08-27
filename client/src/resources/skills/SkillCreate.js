@@ -1,10 +1,11 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput } from 'react-admin';
+import { SimpleForm, TextInput } from 'react-admin';
+import { Create } from "../../archipelago-layout";
 
 const SkillCreate = props => (
-  <Create title="Créer une compétence" {...props}>
+  <Create {...props}>
     <SimpleForm>
-      <TextInput source="pair:label" label="Titre" />
+      <TextInput source="pair:label" label="Titre" fullWidth />
     </SimpleForm>
   </Create>
 );

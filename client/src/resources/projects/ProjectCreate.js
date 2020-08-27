@@ -1,5 +1,6 @@
 import React from 'react';
-import { Create, SimpleForm, TextInput } from 'react-admin';
+import { SimpleForm, TextInput } from 'react-admin';
+import { Create } from "../../archipelago-layout";
 
 const ProjectCreate = props => (
   <Create {...props}>
