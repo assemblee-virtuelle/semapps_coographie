@@ -1,23 +1,28 @@
 const resources = {
   Project: {
     types: ['pair:Project'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'projects'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'projects',
+    slugField: 'pair:label'
   },
   Organization: {
     types: ['pair:Organization'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations',
+    slugField: 'pair:label'
   },
   User: {
     types: ['pair:Person'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'persons'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'persons',
+    slugField: ['pair:firstName', 'pair:lastName']
   },
   Skill: {
     types: ['pair:Skill'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'skills'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'skills',
+    slugField: 'pair:label'
   },
   Interest: {
     types: ['pair:Thema'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themas'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themas',
+    slugField: 'pair:label'
   }
 };
 

@@ -156,17 +156,29 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
   create: async (resourceId, params) => {
     if (!resources[resourceId]) Error(`Resource ${resourceId} is not mapped in resources file`);
 
-    const { headers } = await httpClient(resources[resourceId].containerUri, {
+    const { slugField, containerUri, types } = resources[resourceId];
+    const headers = new Headers();
+
+    if( slugField ) {
+      if( Array.isArray(slugField) ) {
+        headers.set('Slug', slugField.map(f => params.data[f]).join(' '));
+      } else {
+        headers.set('Slug', params.data[slugField]);
+      }
+    }
+
+    const { headers: responseHeaders } = await httpClient(containerUri, {
       method: 'POST',
+      headers,
       body: JSON.stringify({
         '@context': getJsonContext(ontologies, mainOntology),
-        '@type': resources[resourceId].types,
+        '@type': types,
         ...params.data
       })
     });
 
     // Retrieve newly-created resource
-    const resourceUri = headers.get('Location');
+    const resourceUri = responseHeaders.get('Location');
     let { json } = await httpClient(resourceUri);
     json.id = json.id || json['@id'];
     return { data: json };
