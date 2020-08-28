@@ -5,7 +5,7 @@ import UriArrayInput from '../../components/UriArrayInput';
 
 export const UserEdit = props => (
   <Edit {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="show">
       <TextInput source="pair:firstName" label="Prénom" fullWidth />
       <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
       <UriArrayInput label="Participe à" reference="Project" source="pair:involvedIn">

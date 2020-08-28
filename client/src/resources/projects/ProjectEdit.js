@@ -6,7 +6,7 @@ import UriArrayInput from '../../components/UriArrayInput';
 
 const ProjectEdit = props => (
   <Edit {...props}>
-    <SimpleForm>
+    <SimpleForm redirect="show">
       <TextInput source="pair:label" label="Nom" fullWidth />
       <TextInput source="pair:comment" label="Courte description" fullWidth />
       <MarkdownInput multiline source="pair:description" label="Description" fullWidth />
