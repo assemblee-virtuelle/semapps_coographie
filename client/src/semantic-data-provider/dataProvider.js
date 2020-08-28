@@ -101,9 +101,13 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
     for (let id of params.ids) {
       id = typeof id === 'object' ? id['@id'] : id;
 
-      let { json } = await httpClient(id);
-      json.id = json.id || json['@id'];
-      returnData.push(json);
+      try {
+        let { json } = await httpClient(id);
+        json.id = json.id || json['@id'];
+        returnData.push(json);
+      } catch(e) {
+        // Do nothing if one resource fails tp load
+      }
     }
 
     return { data: returnData };
