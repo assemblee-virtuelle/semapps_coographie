@@ -1,11 +1,19 @@
 import React from 'react';
 import { getResources } from 'react-admin';
-import { Tabs, Tab, useMediaQuery } from '@material-ui/core';
+import { Tabs, Tab, useMediaQuery, makeStyles } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
 import { shallowEqual, useSelector } from 'react-redux';
 
+const useStyles = makeStyles((theme) => ({
+  tab: {
+    minWidth: 55
+  },
+}));
+
 const ResourceTabs = () => {
   const history = useHistory();
+
+  const classes = useStyles();
 
   const location = useLocation();
   const matches = location.pathname.match(/^\/([^/]+)/);
@@ -31,6 +39,7 @@ const ResourceTabs = () => {
             icon={React.createElement(resource.icon)}
             label={xs ? undefined : resource.options.label}
             value={resource.name}
+            className={classes.tab}
           />
         ))}
     </Tabs>

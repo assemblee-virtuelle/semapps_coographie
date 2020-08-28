@@ -3,7 +3,7 @@ import { Container, Box, Grid, Hidden, makeStyles } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import SearchForm from './SearchForm';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   header: {
     position: 'relative',
     height: 65
@@ -12,7 +12,13 @@ const useStyles = makeStyles(() => ({
     position: 'absolute',
     top: -15,
     height: 110,
-    width: 110
+    width: 110,
+    [theme.breakpoints.down('xs')]: {
+      position: 'relative',
+      top: 0,
+      width: 65,
+      height: 65
+    },
   }
 }));
 

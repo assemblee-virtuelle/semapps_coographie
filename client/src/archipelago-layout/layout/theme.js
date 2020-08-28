@@ -1,5 +1,8 @@
 import { createMuiTheme } from '@material-ui/core';
 
+// Allow to use breakpoints
+const defaultTheme = createMuiTheme();
+
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#28ccfb' },
@@ -22,12 +25,27 @@ const theme = createMuiTheme({
     },
     RaShow: {
       card: {
-        padding: 25
+        padding: 25,
+        [defaultTheme.breakpoints.down('xs')]: {
+          padding: 15
+        }
       }
     },
     RaList: {
       content: {
-        padding: 25
+        padding: 25,
+        [defaultTheme.breakpoints.down('xs')]: {
+          padding: 15
+        }
+      }
+    },
+    // Hide top actions bar in mobile for list pages
+    RaListToolbar: {
+      toolbar: {
+        [defaultTheme.breakpoints.down('xs')]: {
+          height: 0,
+          minHeight: 0
+        }
       }
     },
     RaSingleFieldList: {

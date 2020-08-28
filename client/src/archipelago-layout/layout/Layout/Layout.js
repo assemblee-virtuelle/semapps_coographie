@@ -11,7 +11,7 @@ const Layout = ({ children, theme }) => {
       <ScrollToTop />
       <Header />
       <Container maxWidth="lg" disableGutters={xs}>
-        <Box mb={5}>{children}</Box>
+        <Box mb={{ xs: 0, sm: 5 }}>{children}</Box>
       </Container>
       {/* Required for react-admin optimistic update */}
       <Notification />

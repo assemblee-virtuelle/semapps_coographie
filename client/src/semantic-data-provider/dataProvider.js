@@ -114,7 +114,6 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
           })
           .sort((a, b) => {
             if( params.sort && a[params.sort.field] && b[params.sort.field] ) {
-              console.log('a[params.sort.field]', a[params.sort.field], b[params.sort.field])
               if( params.sort.order === 'DESC' ) {
                 return a[params.sort.field].localeCompare(b[params.sort.field]);
               } else {
