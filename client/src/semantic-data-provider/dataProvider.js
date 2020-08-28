@@ -106,7 +106,9 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
         json.id = json.id || json['@id'];
         returnData.push(json);
       } catch(e) {
-        // Do nothing if one resource fails tp load
+        // Do nothing if one resource fails to load
+        // Otherwise no references will be show if only one is missing
+        // See https://github.com/marmelab/react-admin/issues/5190
       }
     }
 
