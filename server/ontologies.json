@@ -31,13 +31,8 @@
   },
   {
     "prefix": "pair",
-    "owl": "",
+    "owl": "http://virtual-assembly.org/ontologies/pair/ontology.ttl",
     "url": "http://virtual-assembly.org/ontologies/pair#"
-  },
-  {
-    "prefix": "pairv1",
-    "owl": "",
-    "url": "http://virtual-assembly.org/pair#"
   },
   {
     "prefix": "skos",
