@@ -5,7 +5,7 @@ if ! [ -x "$(command -v docker-compose)" ]; then
   exit 1
 fi
 
-domains=(data.grandsvoisins.semapps.org)
+domains=(data-gv.semapps.org)
 rsa_key_size=4096
 data_path="./certbot"
 email="srosset81@gmail.com"
