@@ -6,7 +6,7 @@ const ProjectList = props => (
     <SimpleList
       primaryText={record => record['pair:label']}
       secondaryText={record => record['pair:comment']}
-      leftAvatar={() => <img src={process.env.PUBLIC_URL + '/av.png'} width="100%" alt="Assemblée virtuelle" />}
+      leftAvatar={() => <img src={process.env.PUBLIC_URL + '/gv.png'} width="100%" alt="Les Grands Voisins" />}
       linkType="show"
     />
   </List>

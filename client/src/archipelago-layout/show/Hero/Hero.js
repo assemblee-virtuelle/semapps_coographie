@@ -19,7 +19,7 @@ const Hero = ({ basePath, children, record, resource, title, image }) => {
       </Box>
       <Grid container spacing={5}>
         <Grid item xs={12} sm={5}>
-          <img src={image || process.env.PUBLIC_URL + '/av.png'} width="100%" alt={title} />
+          <img src={image || process.env.PUBLIC_URL + '/gv.png'} width="100%" alt={title} />
         </Grid>
         <Grid item xs={12} sm={7}>
           <DetailsList record={record} resource={resource} basePath={basePath}>

@@ -25,7 +25,7 @@ services:
       - SEMAPPS_MAIN_DATASET=localData
       - SEMAPPS_JENA_USER=admin
       - SEMAPPS_JENA_PASSWORD=admin
-      - SEMAPPS_HOME_URL=https://data.virtual-assembly.org/
+      - SEMAPPS_HOME_URL=https://data.grandsvoisins.semapps.org/
     depends_on:
       - fuseki
     volumes:
@@ -45,7 +45,7 @@ services:
     container_name: frontend-coographie
     environment:
       - PORT=5000
-      - REACT_APP_MIDDLEWARE_URL=https://data.virtual-assembly.org/
+      - REACT_APP_MIDDLEWARE_URL=https://data.grandsvoisins.semapps.org/
     volumes:
       - ./client:/app
     networks:
