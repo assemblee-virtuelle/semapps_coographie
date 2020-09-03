@@ -46,7 +46,7 @@
   },
   {
     "prefix": "gv",
-    "owl": "http://assemblee-virtuelle.github.io/grands-voisins-v2/gv.owl.ttl",
+    "owl": "",
     "url": "http://assemblee-virtuelle.github.io/grands-voisins-v2/gv.owl.ttl#"
   },
   {
