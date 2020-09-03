@@ -30,8 +30,8 @@ function App() {
       theme={theme}
     >
       <Resource name="Organization" {...organizations} />
-      <Resource name="Project" {...projects} />
       <Resource name="User" {...users} />
+      <Resource name="Project" {...projects} />
       <Resource name="Skill" {...skills} />
       <Resource name="Interest" {...interests} />
     </Admin>

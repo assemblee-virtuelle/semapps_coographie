@@ -28,16 +28,21 @@
     "prefix": "pair",
     "owl": "",
     "url": "http://virtual-assembly.org/ontologies/pair#",
-    "context": "https://gist.githubusercontent.com/srosset81/cc330b63a213e6f68eb5e52d6ded4342/raw/7418e256c64685d44607f333e49489afb302a0b6/pair-ontology.json"
-  },
-  {
-    "prefix": "pairv1",
-    "owl": "",
-    "url": "http://virtual-assembly.org/pair#"
+    "context": "https://gist.githubusercontent.com/srosset81/140a1cfaa0f330b7c797c2ea319458bd/raw/ac00d92c9191468d561287985ea09a0bba22eb14/gv-ontology.json"
   },
   {
     "prefix": "skos",
     "owl": "",
     "url": "http://www.w3.org/2004/02/skos/core#"
+  },
+  {
+    "prefix": "gv",
+    "owl": "http://assemblee-virtuelle.github.io/grands-voisins-v2/gv.owl.ttl",
+    "url": "http://assemblee-virtuelle.github.io/grands-voisins-v2/gv.owl.ttl#"
+  },
+  {
+    "prefix": "purl",
+    "owl": "",
+    "url": "http://purl.org/dc/elements/1.1/"
   }
 ]

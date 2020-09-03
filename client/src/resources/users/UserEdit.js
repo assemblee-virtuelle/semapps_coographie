@@ -6,19 +6,12 @@ import UriArrayInput from '../../components/UriArrayInput';
 export const UserEdit = props => (
   <Edit {...props}>
     <SimpleForm redirect="show">
-      <TextInput source="pair:firstName" label="Prénom" fullWidth />
-      <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
-      <UriArrayInput label="Participe à" reference="Project" source="pair:involvedIn">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
-      </UriArrayInput>
-      <UriArrayInput label="Membre" reference="Organization" source="pair:memberOf">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
-      </UriArrayInput>
-      <UriArrayInput label="Compétences" reference="Skill" source="pair:offers">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
-      </UriArrayInput>
-      <UriArrayInput label="Intérêts" reference="Interest" source="pair:hasInterest">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
+      <TextInput label="Prénom" source="foaf:givenName" fullWidth />
+      <TextInput label="Nom de famille" source="foaf:familyName" fullWidth />
+      <TextInput label="Adresse e-mail" source="foaf:mbox" fullWidth />
+      <TextInput label="Téléphone" source="foaf:phone" fullWidth />
+      <UriArrayInput label="Responsable" reference="Organization" source="pair:responsibleOf">
+        <AutocompleteArrayInput optionText={record => record && record['foaf:name']} fullWidth />
       </UriArrayInput>
     </SimpleForm>
   </Edit>

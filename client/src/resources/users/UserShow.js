@@ -4,7 +4,7 @@ import { Column, ColumnShowLayout, Hero, Show } from '../../archipelago-layout';
 import UriArrayField from '../../components/UriArrayField';
 
 const UserTitle = ({ record }) => {
-  return <span>{record ? `${record['pair:firstName']} ${record['pair:lastName']}` : ''}</span>;
+  return <span>{record ? `${record['foaf:givenName']} ${record['foaf:familyName']}` : ''}</span>;
 };
 
 const UserShow = props => (
@@ -12,14 +12,16 @@ const UserShow = props => (
     <ColumnShowLayout>
       <Column xs={12} sm={9}>
         <Hero title={<UserTitle />} image={process.env.PUBLIC_URL + '/unknown-user.png'}>
-          <TextField label="Prénom" source="pair:firstName" />
-          <TextField label="Nom de famille" source="pair:lastName" />
+          <TextField label="Prénom" source="foaf:givenName" />
+          <TextField label="Nom de famille" source="foaf:familyName" />
+          <TextField label="Adresse e-mail" source="foaf:mbox" />
+          <TextField label="Téléphone" source="foaf:phone" />
         </Hero>
       </Column>
       <Column xs={12} sm={3} showLabel>
-        <UriArrayField label="Membre" reference="Organization" source="pair:memberOf">
+        <UriArrayField label="Responsable de" reference="Organization" source="pair:responsibleOf">
           <SingleFieldList linkType="show">
-            <ChipField source="pair:label" color="secondary" />
+            <ChipField source="foaf:name" color="secondary" />
           </SingleFieldList>
         </UriArrayField>
         <UriArrayField label="Participe à" reference="Project" source="pair:involvedIn">

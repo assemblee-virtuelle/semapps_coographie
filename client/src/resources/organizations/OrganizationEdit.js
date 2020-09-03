@@ -1,19 +1,25 @@
 import React from 'react';
 import { AutocompleteArrayInput, SimpleForm, TextInput } from 'react-admin';
-import MarkdownInput from 'ra-input-markdown';
 import { Edit } from '../../archipelago-layout';
 import UriArrayInput from '../../components/UriArrayInput';
 
 export const OrganizationEdit = props => (
   <Edit {...props}>
     <SimpleForm redirect="show">
-      <TextInput source="pair:label" label="Nom" />
-      <TextInput source="pair:comment" label="Courte description" fullWidth />
-      <MarkdownInput multiline source="pair:description" label="Description" fullWidth />
-      <TextInput source="pair:homePage" label="Site web" fullWidth />
-      <UriArrayInput label="Membres" reference="User" source="pair:hasMember">
+      <TextInput label="Nom" source="foaf:name" fullWidth />
+      <TextInput label="Objet" source="purl:subject" fullWidth />
+      <TextInput label="Date d'arrivée" source="gv:arrivalDate" fullWidth />
+      <TextInput label="Statut" source="gv:status" fullWidth />
+      <TextInput label="Bâtiment" source="gv:building" fullWidth />
+      <TextInput label="Salle" source="gv:room" fullWidth />
+      <TextInput label="Type de convention" source="gv:conventionType" fullWidth />
+      <TextInput label="Nombre d'employés" source="gv:empoyeesCount" fullWidth />
+      <TextInput label="Propositions" source="gv:proposedContribution" fullWidth />
+      <TextInput label="Réalisations" source="gv:realisedContribution" fullWidth />
+      <TextInput label="Site web" source="foaf:homepage" fullWidth />
+      <UriArrayInput label="Responsables" reference="User" source="pair:hasResponsible">
         <AutocompleteArrayInput
-          optionText={record => record && `${record['pair:firstName']} ${record['pair:lastName']}`}
+          optionText={record => record && `${record['foaf:givenName']} ${record['foaf:familyName']}`}
           fullWidth
         />
       </UriArrayInput>

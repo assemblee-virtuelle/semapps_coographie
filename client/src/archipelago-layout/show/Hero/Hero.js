@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, Typography, makeStyles } from '@material-ui/core';
 import DetailsList from './DetailsList';
 
@@ -10,6 +10,7 @@ const useStyles = makeStyles(() => ({
 
 const Hero = ({ basePath, children, record, resource, title, image }) => {
   const classes = useStyles();
+  const [ fallback, setFallback ] = useState(false);
   return (
     <div className={classes.root}>
       <Box>
@@ -19,7 +20,7 @@ const Hero = ({ basePath, children, record, resource, title, image }) => {
       </Box>
       <Grid container spacing={5}>
         <Grid item xs={12} sm={5}>
-          <img src={image || process.env.PUBLIC_URL + '/gv.png'} width="100%" alt={title} />
+          <img src={!fallback ? record[image] || image || process.env.PUBLIC_URL + '/gv.png' : process.env.PUBLIC_URL + '/gv.png'} width="100%" alt={title} onError={() => setFallback(true)} />
         </Grid>
         <Grid item xs={12} sm={7}>
           <DetailsList record={record} resource={resource} basePath={basePath}>
