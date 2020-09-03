@@ -2,7 +2,7 @@
   "version": 2,
   "build": {
     "env": {
-      "REACT_APP_MIDDLEWARE_URL": "https://data.virtual-assembly.org/"
+      "REACT_APP_MIDDLEWARE_URL": "https://data.grandsvoisins.semapps.org/"
     }
   },
   "public": true
