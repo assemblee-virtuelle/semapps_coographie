@@ -2,7 +2,7 @@ import React from 'react';
 import { List, SimpleList } from '../../archipelago-layout';
 
 const OrganizationList = props => (
-  <List {...props}>
+  <List sort={{ field: 'foaf:name', order: 'DESC' }} {...props}>
     <SimpleList
       primaryText={record => record['foaf:name']}
       secondaryText={record => record['gv:proposedContribution']}
