@@ -1,5 +1,5 @@
 import jsonld from 'jsonld';
-import buildSparqlQuery from "./buildSparqlQuery";
+import buildSparqlQuery from './buildSparqlQuery';
 
 const getJsonContext = (ontologies, mainOntology) => {
   let pattern = {};
@@ -71,8 +71,8 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
             return item;
           })
           .sort((a, b) => {
-            if( params.sort && a[params.sort.field] && b[params.sort.field] ) {
-              if( params.sort.order === 'DESC' ) {
+            if (params.sort && a[params.sort.field] && b[params.sort.field]) {
+              if (params.sort.order === 'DESC') {
                 return a[params.sort.field].localeCompare(b[params.sort.field]);
               } else {
                 return b[params.sort.field].localeCompare(a[params.sort.field]);
@@ -105,7 +105,7 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
         let { json } = await httpClient(id);
         json.id = json.id || json['@id'];
         returnData.push(json);
-      } catch(e) {
+      } catch (e) {
         // Do nothing if one resource fails to load
         // Otherwise no references will be show if only one is missing
         // See https://github.com/marmelab/react-admin/issues/5190
@@ -123,10 +123,10 @@ const dataProvider = ({ sparqlEndpoint, httpClient, resources, ontologies, mainO
     const { slugField, containerUri, types } = resources[resourceId];
     const headers = new Headers();
 
-    if( slugField ) {
-      headers.set('Slug', Array.isArray(slugField)
-        ? slugField.map(f => params.data[f]).join(' ')
-        : params.data[slugField]
+    if (slugField) {
+      headers.set(
+        'Slug',
+        Array.isArray(slugField) ? slugField.map(f => params.data[f]).join(' ') : params.data[slugField]
       );
     }
 

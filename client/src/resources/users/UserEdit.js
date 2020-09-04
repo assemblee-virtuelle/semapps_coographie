@@ -9,16 +9,16 @@ export const UserEdit = props => (
       <TextInput source="pair:firstName" label="Prénom" fullWidth />
       <TextInput source="pair:lastName" label="Nom de famille" fullWidth />
       <UriArrayInput label="Participe à" reference="Project" source="pair:involvedIn">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
+        <AutocompleteArrayInput optionText="pair:label" fullWidth />
       </UriArrayInput>
       <UriArrayInput label="Membre" reference="Organization" source="pair:memberOf">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
+        <AutocompleteArrayInput optionText="pair:label" fullWidth />
       </UriArrayInput>
       <UriArrayInput label="Compétences" reference="Skill" source="pair:offers">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
+        <AutocompleteArrayInput optionText="pair:label" fullWidth />
       </UriArrayInput>
       <UriArrayInput label="Intérêts" reference="Interest" source="pair:hasInterest">
-        <AutocompleteArrayInput optionText={record => record && record['pair:label']} fullWidth />
+        <AutocompleteArrayInput optionText="pair:label" fullWidth />
       </UriArrayInput>
     </SimpleForm>
   </Edit>

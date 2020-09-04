@@ -12,20 +12,17 @@ const ProjectEdit = props => (
       <MarkdownInput multiline source="pair:description" label="Description" fullWidth />
       <TextInput source="pair:homePage" label="Site web" fullWidth />
       <UriArrayInput label="Géré par" reference="Organization" source="pair:managedBy">
-        <AutocompleteArrayInput
-          optionText={record => (record && record['pair:label'])}
-          fullWidth
-        />
+        <AutocompleteArrayInput optionText="pair:label" fullWidth />
       </UriArrayInput>
       <UriArrayInput label="Responsables" reference="User" source="pair:hasResponsible">
         <AutocompleteArrayInput
-          optionText={record => (record && `${record['pair:firstName']} ${record['pair:lastName']}`)}
+          optionText={record => record && `${record['pair:firstName']} ${record['pair:lastName']}`}
           fullWidth
         />
       </UriArrayInput>
       <UriArrayInput label="Participants" reference="User" source="pair:involves">
         <AutocompleteArrayInput
-          optionText={record => (record && `${record['pair:firstName']} ${record['pair:lastName']}`)}
+          optionText={record => record && `${record['pair:firstName']} ${record['pair:lastName']}`}
           fullWidth
         />
       </UriArrayInput>

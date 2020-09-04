@@ -4,10 +4,10 @@ import { Tabs, Tab, useMediaQuery, makeStyles } from '@material-ui/core';
 import { useHistory, useLocation } from 'react-router';
 import { shallowEqual, useSelector } from 'react-redux';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   tab: {
     minWidth: 55
-  },
+  }
 }));
 
 const ResourceTabs = () => {

@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
       top: 0,
       width: 65,
       height: 65
-    },
+    }
   }
 }));
 
