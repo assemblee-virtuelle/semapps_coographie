@@ -67,14 +67,3 @@ build-prod: docker-build-prod
 prettier:
 	npm run prettier --prefix ./client
 	npm run prettier --prefix ./server
-
-bootstrap:
-	npm run bootstrap --prefix ./src/frontend
-	npm run bootstrap --prefix ./src/middleware
-
-# For tests we currently only need fuseki
-test:
-	$(DOCKER_COMPOSE_TEST) build
-	$(DOCKER_COMPOSE_TEST) up -d
-	npm run test --prefix ./src/middleware/tests/
-	$(DOCKER_COMPOSE_TEST) down
