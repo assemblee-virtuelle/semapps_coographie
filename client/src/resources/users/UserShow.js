@@ -17,7 +17,7 @@ const UserShow = props => (
         </Hero>
       </Column>
       <Column xs={12} sm={3} showLabel>
-        <UriArrayField label="Membre" reference="Organization" source="pair:memberOf">
+        <UriArrayField label="Membre de" reference="Organization" source="pair:memberOf">
           <SingleFieldList linkType="show">
             <ChipField source="pair:label" color="secondary" />
           </SingleFieldList>

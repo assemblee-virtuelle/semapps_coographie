@@ -14,6 +14,7 @@ export const OrganizationEdit = props => (
       <UriArrayInput label="Membres" reference="User" source="pair:hasMember">
         <AutocompleteArrayInput
           optionText={record => record && `${record['pair:firstName']} ${record['pair:lastName']}`}
+          shouldRenderSuggestions={value => value.length > 1}
           fullWidth
         />
       </UriArrayInput>
