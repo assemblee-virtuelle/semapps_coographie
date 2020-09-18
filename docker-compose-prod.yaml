@@ -88,6 +88,19 @@ services:
       - semapps
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
 
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    expose:
+      - "6379"
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - semapps
+    command: ["redis-server", "--appendonly", "yes"]
+
 networks:
   semapps:
     name: semapps_network
