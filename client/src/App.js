@@ -9,6 +9,7 @@ import { Layout, theme } from './archipelago-layout';
 import resources from './config/resources';
 import ontologies from './config/ontologies';
 
+import events from './resources/events';
 import interests from './resources/interests';
 import projects from './resources/projects';
 import organizations from './resources/organizations';
@@ -31,6 +32,7 @@ function App() {
     >
       <Resource name="Organization" {...organizations} />
       <Resource name="Project" {...projects} />
+      <Resource name="Event" {...events} />
       <Resource name="User" {...users} />
       <Resource name="Skill" {...skills} />
       <Resource name="Interest" {...interests} />

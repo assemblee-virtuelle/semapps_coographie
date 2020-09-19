@@ -23,6 +23,11 @@ const resources = {
     types: ['pair:Thema'],
     containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themas',
     slugField: 'pair:label'
+  },
+  Event: {
+    types: ['pair:Event'],
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'events',
+    slugField: 'pair:label'
   }
 };
 
