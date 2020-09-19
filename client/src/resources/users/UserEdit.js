@@ -1,7 +1,7 @@
 import React from 'react';
 import { AutocompleteArrayInput, SimpleForm, TextInput } from 'react-admin';
 import { Edit } from '../../archipelago-layout';
-import UriArrayInput from '../../components/UriArrayInput';
+import { UriArrayInput } from '../../semantic-data-provider';
 
 export const UserEdit = props => (
   <Edit {...props}>

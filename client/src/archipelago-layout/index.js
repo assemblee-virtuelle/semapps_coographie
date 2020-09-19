@@ -23,3 +23,6 @@ export { default as Hero } from './show/Hero/Hero';
 export { default as Show } from './show/Show';
 export { default as ShowActions } from './show/ShowActions';
 export { default as UserIcon } from './show/UserIcon';
+
+// Other components
+export { default as MarkdownField } from './MarkdownField';

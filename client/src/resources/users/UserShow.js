@@ -1,7 +1,7 @@
 import React from 'react';
 import { ChipField, SingleFieldList, TextField } from 'react-admin';
 import { Column, ColumnShowLayout, Hero, Show } from '../../archipelago-layout';
-import UriArrayField from '../../components/UriArrayField';
+import { UriArrayField } from '../../semantic-data-provider';
 
 const UserTitle = ({ record }) => {
   return <span>{record ? `${record['pair:firstName']} ${record['pair:lastName']}` : ''}</span>;

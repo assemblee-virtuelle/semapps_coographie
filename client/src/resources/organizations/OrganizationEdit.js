@@ -2,7 +2,7 @@ import React from 'react';
 import { AutocompleteArrayInput, SimpleForm, TextInput } from 'react-admin';
 import MarkdownInput from 'ra-input-markdown';
 import { Edit } from '../../archipelago-layout';
-import UriArrayInput from '../../components/UriArrayInput';
+import { UriArrayInput } from '../../semantic-data-provider';
 
 export const OrganizationEdit = props => (
   <Edit {...props}>
