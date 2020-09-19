@@ -11,6 +11,6 @@ export default {
   edit: EventEdit,
   icon: EventIcon,
   options: {
-    label: 'Evénements'
+    label: 'Événements'
   }
 };
