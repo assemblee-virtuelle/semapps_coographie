@@ -14,7 +14,7 @@ const EventEdit = props => (
       <TextInput source="pair:aboutPage" label="Réseaux sociaux" fullWidth />
       <DateTimeInput source="pair:startDate" label="Date de début" fullWidth />
       <DateTimeInput source="pair:endDate" label="Date de fin" fullWidth />
-      <UriArrayInput label="Organisé par" reference="Project" source="pair:deliveredBy">
+      <UriArrayInput label="Proposé par" reference="Organization" source="pair:deliveredBy">
         <AutocompleteArrayInput shouldRenderSuggestions={value => value.length > 1} optionText="pair:label" fullWidth />
       </UriArrayInput>
       <UriArrayInput label="Intérêts" reference="Interest" source="pair:hasInterest">
