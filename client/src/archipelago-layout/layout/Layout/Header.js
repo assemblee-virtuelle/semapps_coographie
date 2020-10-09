@@ -29,7 +29,7 @@ const Header = () => {
       <Container maxWidth="lg" className={classes.header}>
         <Grid container>
           <Grid item xs={12} sm={6}>
-            <Link to="/Organization">
+            <Link to="/Note">
               <img src={process.env.PUBLIC_URL + '/av.png'} alt="Assemblée Virtuelle" className={classes.logo} />
             </Link>
           </Grid>

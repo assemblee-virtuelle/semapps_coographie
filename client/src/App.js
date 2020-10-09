@@ -9,12 +9,13 @@ import { Layout, theme } from './archipelago-layout';
 import resources from './config/resources';
 import ontologies from './config/ontologies';
 
-import events from './resources/events';
-import interests from './resources/interests';
-import projects from './resources/projects';
-import organizations from './resources/organizations';
-import skills from './resources/skills';
-import users from './resources/users';
+// import events from './resources/events';
+// import interests from './resources/interests';
+// import projects from './resources/projects';
+// import organizations from './resources/organizations';
+// import skills from './resources/skills';
+// import users from './resources/users';
+import notes from './resources/notes';
 
 function App() {
   return (
@@ -24,18 +25,19 @@ function App() {
         httpClient,
         resources,
         ontologies,
-        mainOntology: 'pair'
+        mainOntology: 'as'
       })}
       i18nProvider={polyglotI18nProvider(() => frenchMessages)}
       layout={Layout}
       theme={theme}
     >
-      <Resource name="Organization" {...organizations} />
-      <Resource name="Project" {...projects} />
-      <Resource name="Event" {...events} />
-      <Resource name="User" {...users} />
-      <Resource name="Skill" {...skills} />
-      <Resource name="Interest" {...interests} />
+      {/*<Resource name="Organization" {...organizations} />*/}
+      {/*<Resource name="Project" {...projects} />*/}
+      {/*<Resource name="Event" {...events} />*/}
+      {/*<Resource name="User" {...users} />*/}
+      {/*<Resource name="Skill" {...skills} />*/}
+      {/*<Resource name="Interest" {...interests} />*/}
+      <Resource name="Note" {...notes} />
     </Admin>
   );
 }
