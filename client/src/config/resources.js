@@ -1,26 +1,33 @@
 const resources = {
   Project: {
     types: ['pair:Project'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'projects'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'projects',
+    slugField: 'pair:label'
   },
   Organization: {
     types: ['pair:Organization'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'organizations',
+    slugField: 'pair:label'
   },
-  Person: {
+  User: {
     types: ['pair:Person'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'persons'
-  },
-  Thema: {
-    types: ['pair:Thema'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themas'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'persons',
+    slugField: ['pair:firstName', 'pair:lastName']
   },
   Skill: {
     types: ['pair:Skill'],
-    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'skills'
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'skills',
+    slugField: 'pair:label'
   },
-  Agent: {
-    types: ['pair:Person', 'pair:Organization']
+  Interest: {
+    types: ['pair:Thema'],
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'themas',
+    slugField: 'pair:label'
+  },
+  Event: {
+    types: ['pair:Event'],
+    containerUri: process.env.REACT_APP_MIDDLEWARE_URL + 'events',
+    slugField: 'pair:label'
   }
 };
 

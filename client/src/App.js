@@ -1,14 +1,20 @@
 import React from 'react';
 import { Admin, Resource } from 'react-admin';
-import { dataProvider, httpClient } from '@semapps/react-admin';
-import LogoutButton from './auth/LogoutButton';
-import { ProjectList, ProjectEdit, ProjectCreate, ProjectIcon } from './resources/projects';
-import { OrganizationList, OrganizationEdit, OrganizationCreate, OrganizationIcon } from './resources/organizations';
-import { PersonList, PersonEdit, PersonIcon } from './resources/persons';
-import { ThemaList, ThemaEdit, ThemaIcon } from './resources/themas';
-import { SkillList, SkillEdit, SkillIcon } from './resources/skills';
+import frenchMessages from 'ra-language-french';
+import polyglotI18nProvider from 'ra-i18n-polyglot';
+
+import { dataProvider, httpClient } from './semantic-data-provider';
+import { Layout, theme } from './archipelago-layout';
+
 import resources from './config/resources';
 import ontologies from './config/ontologies';
+
+import events from './resources/events';
+import interests from './resources/interests';
+import projects from './resources/projects';
+import organizations from './resources/organizations';
+import skills from './resources/skills';
+import users from './resources/users';
 
 function App() {
   return (
@@ -17,45 +23,19 @@ function App() {
         sparqlEndpoint: process.env.REACT_APP_MIDDLEWARE_URL + 'sparql',
         httpClient,
         resources,
-        ontologies
+        ontologies,
+        mainOntology: 'pair'
       })}
-      logoutButton={LogoutButton}
+      i18nProvider={polyglotI18nProvider(() => frenchMessages)}
+      layout={Layout}
+      theme={theme}
     >
-      <Resource
-        name="Project"
-        list={ProjectList}
-        edit={ProjectEdit}
-        create={ProjectCreate}
-        icon={ProjectIcon}
-        options={{ label: 'Projets' }}
-      />
-      <Resource
-        name="Organization"
-        list={OrganizationList}
-        edit={OrganizationEdit}
-        create={OrganizationCreate}
-        icon={OrganizationIcon}
-        options={{ label: 'Organisations' }}
-      />
-      <Resource
-        name="Person"
-        list={PersonList}
-        edit={PersonEdit}
-        icon={PersonIcon}
-        options={{ label: 'Contributeurs' }} />
-      <Resource
-        name="Thema"
-        list={ThemaList}
-        edit={ThemaEdit}
-        icon={ThemaIcon}
-        options={{ label: 'Themes' }} />
-      <Resource
-        name="Skill"
-        list={SkillList}
-        edit={SkillEdit}
-        icon={SkillIcon}
-        options={{ label: 'Compétences' }} />
-      <Resource name="Agent" />
+      <Resource name="Organization" {...organizations} />
+      <Resource name="Project" {...projects} />
+      <Resource name="Event" {...events} />
+      <Resource name="User" {...users} />
+      <Resource name="Skill" {...skills} />
+      <Resource name="Interest" {...interests} />
     </Admin>
   );
 }
