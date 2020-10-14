@@ -14,6 +14,14 @@ module.exports = {
   },
   dependencies: ['ldp', 'sparqlEndpoint', 'webid'],
   async started() {
+    console.log('api.started', {
+      issuer: CONFIG.OIDC_ISSUER,
+      clientId: CONFIG.OIDC_CLIENT_ID,
+      clientSecret: CONFIG.OIDC_CLIENT_SECRET,
+      publicKey: CONFIG.OIDC_PUBLIC_KEY,
+      redirectUri: CONFIG.HOME_URL + 'auth'
+    });
+
     this.connector = new OidcConnector({
       issuer: CONFIG.OIDC_ISSUER,
       clientId: CONFIG.OIDC_CLIENT_ID,
