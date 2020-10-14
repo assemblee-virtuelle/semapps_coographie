@@ -32,6 +32,7 @@ module.exports = {
     await this.connector.initialize();
 
     [
+      this.connector.getRoute(),
       ...(await this.broker.call('ldp.getApiRoutes')),
       ...(await this.broker.call('webid.getApiRoutes')),
       ...(await this.broker.call('sparqlEndpoint.getApiRoutes'))
