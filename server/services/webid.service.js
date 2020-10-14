@@ -1,8 +1,9 @@
 const { WebIdService } = require('@semapps/webid');
+const CONFIG = require('../config');
 
 module.exports = {
   mixins: [WebIdService],
   settings: {
-    usersContainer: process.env.SEMAPPS_HOME_URL + 'users/'
+    usersContainer: CONFIG.HOME_URL + 'users/'
   }
 };

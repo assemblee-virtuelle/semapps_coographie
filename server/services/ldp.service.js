@@ -1,10 +1,11 @@
 const { LdpService } = require('@semapps/ldp');
 const ontologies = require('../ontologies');
+const CONFIG = require('../config');
 
 module.exports = {
   mixins: [LdpService],
   settings: {
-    baseUrl: process.env.SEMAPPS_HOME_URL,
+    baseUrl: CONFIG.HOME_URL,
     ontologies,
     containers: ['/organizations', '/projects', '/events', '/persons', '/themas', '/skills'],
     defaultJsonContext:

@@ -1,10 +1,11 @@
 const { InferenceService } = require('@semapps/inference');
 const ontologies = require('../ontologies');
+const CONFIG = require('../config');
 
 module.exports = {
   mixins: [InferenceService],
   settings: {
-    baseUrl: process.env.SEMAPPS_HOME_URL,
+    baseUrl: CONFIG.HOME_URL,
     ontologies
   }
 };

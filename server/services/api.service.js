@@ -1,5 +1,6 @@
 const ApiGatewayService = require('moleculer-web');
 const { OidcConnector } = require('@semapps/connector');
+const CONFIG = require('../config');
 
 module.exports = {
   mixins: [ApiGatewayService],
@@ -14,11 +15,11 @@ module.exports = {
   dependencies: ['ldp', 'sparqlEndpoint', 'webid'],
   async started() {
     this.connector = new OidcConnector({
-      issuer: process.env.SEMAPPS_OIDC_ISSUER,
-      clientId: process.env.SEMAPPS_OIDC_CLIENT_ID,
-      clientSecret: process.env.SEMAPPS_OIDC_CLIENT_SECRET,
-      publicKey: process.env.SEMAPPS_OIDC_PUBLIC_KEY,
-      redirectUri: process.env.SEMAPPS_HOME_URL + 'auth',
+      issuer: CONFIG.OIDC_ISSUER,
+      clientId: CONFIG.OIDC_CLIENT_ID,
+      clientSecret: CONFIG.OIDC_CLIENT_SECRET,
+      publicKey: CONFIG.OIDC_PUBLIC_KEY,
+      redirectUri: CONFIG.HOME_URL + 'auth',
       selectProfileData: authData => ({
         email: authData.email,
         name: authData.given_name,
