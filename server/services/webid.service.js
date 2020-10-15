@@ -4,6 +4,6 @@ const CONFIG = require('../config');
 module.exports = {
   mixins: [WebIdService],
   settings: {
-    usersContainer: CONFIG.HOME_URL + 'users/'
+    usersContainer: CONFIG.HOME_URL + 'users'
   }
 };
