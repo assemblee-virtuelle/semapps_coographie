@@ -7,7 +7,7 @@ module.exports = {
       prefix: 'action',
       ttl: 86400, // Time-to-live of one hour
       redis: {
-        host: 'redis',
+        host: 'localhost',
         port: 6379,
         db: 0
       }

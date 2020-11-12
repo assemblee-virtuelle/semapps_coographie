@@ -1,6 +1,7 @@
 const ApiGatewayService = require('moleculer-web');
 const { OidcConnector } = require('@semapps/connector');
 const CONFIG = require('../config');
+const path = require('path');
 
 module.exports = {
   mixins: [ApiGatewayService],
@@ -18,8 +19,9 @@ module.exports = {
       issuer: CONFIG.OIDC_ISSUER,
       clientId: CONFIG.OIDC_CLIENT_ID,
       clientSecret: CONFIG.OIDC_CLIENT_SECRET,
-      publicKey: CONFIG.OIDC_PUBLIC_KEY,
       redirectUri: CONFIG.HOME_URL + 'auth',
+      privateKeyPath: path.resolve(__dirname, '../jwt/jwtRS256.key'),
+      publicKeyPath: path.resolve(__dirname, '../jwt/jwtRS256.key.pub'),
       selectProfileData: authData => ({
         email: authData.email,
         name: authData.given_name,
