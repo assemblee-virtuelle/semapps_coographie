@@ -3,7 +3,6 @@
 
 DOCKER_COMPOSE=docker-compose -f docker-compose.yaml
 DOCKER_COMPOSE_PROD=docker-compose -f docker-compose-prod.yaml
-DOCKER_COMPOSE_TEST=docker-compose -f docker-compose-test.yaml
 
 # Docker
 docker-build:
@@ -20,8 +19,8 @@ docker-stop:
 	$(DOCKER_COMPOSE) rm -fv
 
 docker-stop-prod:
-		$(DOCKER_COMPOSE_PROD) kill
-		$(DOCKER_COMPOSE_PROD) rm -fv
+	$(DOCKER_COMPOSE_PROD) kill
+	$(DOCKER_COMPOSE_PROD) rm -fv
 
 docker-clean:
 	$(DOCKER_COMPOSE) kill
@@ -40,7 +39,7 @@ log:
 	$(DOCKER_COMPOSE) logs -f middleware frontend fuseki
 
 log-prod:
-	$(DOCKER_COMPOSE_PROD) logs -f middleware fuseki frontend
+	$(DOCKER_COMPOSE_PROD) logs -f middleware frontend fuseki
 
 start: docker-start
 
@@ -52,18 +51,6 @@ stop-prod: docker-stop-prod
 
 restart: docker-restart
 
-init :
-	make install
-	make bootstrap
-
-install :
-	npm install --prefix ./client
-	npm install --prefix ./server
-
 build:docker-build
 
 build-prod: docker-build-prod
-
-prettier:
-	npm run prettier --prefix ./client
-	npm run prettier --prefix ./server
