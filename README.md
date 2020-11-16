@@ -15,34 +15,17 @@ https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non
 Install Docker-compose:
 https://docs.docker.com/compose/install/
 
-### Generate deploy key for Github
-
-```
-ssh-keygen -t rsa -b 4096 -C "srosset81@gmail.com"
-tail .ssh/id_rsa.pub
-```
-
-You can then copy-paste it here: https://github.com/reconnexion/colibris-docker-prod/settings/keys
-
 ### Clone this repo
 
 ```
-git clone git@github.com:reconnexion/colibris-docker-prod.git
+git clone git@github.com:assemblee-virtuelle/semapps_coographie.git
 ```
 
 ### Build the containers
 
 ```
-docker-compose build
+make build
 ```
-
-### Create the `colibris` dataset
-
-```
-docker-compose up fuseki
-```
-
-Go to the port 3030 and create a `colibris` dataset.
 
 ### Generate SSL certificates
 
@@ -69,7 +52,7 @@ docker exec -it middleware pm2 logs
 
 ## Frequent errors
 
-### 502 Bad Gateway on a SemApps middleware
+### 502 Bad Gateway on the middleware
 
 Nginx needs to be restarted to take into accounts updates in the middleware.
 
