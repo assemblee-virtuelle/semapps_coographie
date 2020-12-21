@@ -19,7 +19,7 @@ services:
     build:
       context: ./middleware
       args:
-        - SELECTED_BRANCH=master
+        - SELECTED_BRANCH=new-pair-ontology
         - SELECTED_DIR=src/middleware/boilerplates/pair-ldp-server
     container_name: middleware
     depends_on:
