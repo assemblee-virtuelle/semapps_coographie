@@ -9,7 +9,7 @@ RUN npm -v
 
 RUN npm install pm2 -g
 
-RUN apk add --update --no-cache autoconf bash libtool automake python alpine-sdk openssh-keygen yarn nano
+RUN apk add --update --no-cache autoconf bash libtool automake python alpine-sdk openssh-keygen rsync sshpass yarn nano
 
 # Force cache invalidation if the selected branch changed since last build
 # If we don't do that, Docker may skip the git clone command
@@ -30,6 +30,8 @@ RUN rm -Rf semapps_clone
 RUN ./initialize.sh
 
 RUN npm install
+
+RUN ssh-keyscan gateways.storage.sbg.cloud.ovh.net >> ~/.ssh/known_hosts
 
 COPY ./ecosystem.config.js /app
 COPY ./app /app
