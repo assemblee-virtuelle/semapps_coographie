@@ -29,6 +29,7 @@ services:
       - ./middleware/logs:/app/logs
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
+      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
     networks:
       - semapps
     ports:
