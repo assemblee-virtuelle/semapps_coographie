@@ -27,6 +27,7 @@ services:
       - redis
     volumes:
       - ./middleware/logs:/app/logs
+      - ./middleware/actors:/app/actors
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
     networks:
