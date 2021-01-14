@@ -1,5 +1,30 @@
 version: '3.5'
 services:
+  traefik:
+    image: traefik:v2.3
+    container_name: traefik
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.web.http.redirections.entryPoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entryPoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+      - "--certificatesresolvers.myresolver.acme.tlschallenge=true"
+      - "--certificatesresolvers.myresolver.acme.email=srosset81@gmail.com"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+    networks:
+      - semapps
+    ports:
+      - "80:80"
+      - "443:443"
+      - "8080:8080"
+    volumes:
+      - ./letsencrypt:/letsencrypt
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
   fuseki:
     image: stain/jena-fuseki:3.10.0
     container_name: fuseki
@@ -27,6 +52,7 @@ services:
       - redis
     volumes:
       - ./middleware/logs:/app/logs
+      - ./middleware/actors:/app/actors
       - ./middleware/jwt:/app/jwt
       - ./middleware/uploads:/app/uploads
       - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
@@ -36,6 +62,11 @@ services:
       - "3000:3000"
     expose:
       - "3000"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.middleware.rule=Host(`data.virtual-assembly.org`)"
+      - "traefik.http.routers.middleware.entrypoints=websecure"
+      - "traefik.http.routers.middleware.tls.certresolver=myresolver"
 
   frontend:
     build:
@@ -51,43 +82,9 @@ services:
     expose:
       - "5000"
 
-  nginx:
-    image: nginx:1.15-alpine
-    container_name: nginx
-    restart: unless-stopped
-    volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/logs:/var/log/nginx
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    depends_on:
-      - middleware
-    ports:
-      - "80:80"
-      - "443:443"
-    expose:
-      - "80"
-      - "443"
-    networks:
-      - semapps
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-
-  certbot:
-    image: certbot/certbot
-    container_name: certbot
-    restart: unless-stopped
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    networks:
-      - semapps
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
-
   redis:
     image: redis
     container_name: redis
-    ports:
-      - "6379:6379"
     expose:
       - "6379"
     volumes:
