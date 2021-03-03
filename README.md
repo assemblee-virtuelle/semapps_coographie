@@ -18,7 +18,7 @@ https://docs.docker.com/compose/install/
 ### Clone this repo
 
 ```
-git clone git@github.com:assemblee-virtuelle/semapps_coographie.git
+git clone https://github.com/assemblee-virtuelle/semapps_coographie.git
 ```
 
 ### Build and start the containers
