@@ -1,8 +1,8 @@
 .DEFAULT_GOAL := help
 .PHONY: docker-build docker-up build start log stop restart
 
-DOCKER_COMPOSE=docker-compose -f docker-compose.yaml
-DOCKER_COMPOSE_PROD=docker-compose -f docker-compose-prod.yaml
+DOCKER_COMPOSE=docker-compose -f docker-compose-dev.yaml
+DOCKER_COMPOSE_PROD=docker-compose -f docker-compose.yaml
 
 # Docker
 docker-build:

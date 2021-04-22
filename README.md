@@ -4,16 +4,15 @@
 
 ### Install Docker
 
-Install Docker engine:
-https://docs.docker.com/engine/install/
+```
+./install-docker.sh
+```
 
-> For Ubuntu 19.10, see [this comment](https://github.com/docker/for-linux/issues/833#issuecomment-544236041)
+This script will:
 
-Configure Docker user as root:
-https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user
-
-Install Docker-compose:
-https://docs.docker.com/compose/install/
+- Install Docker engine ([official doc](https://docs.docker.com/engine/install/))
+- Configure Docker user as root ([official doc](https://docs.docker.com/engine/install/linux-postinstall/#manage-docker-as-a-non-root-user))
+- Install Docker-compose ([official doc](https://docs.docker.com/compose/install/))
 
 ### Clone this repo
 
@@ -24,8 +23,8 @@ git clone https://github.com/assemblee-virtuelle/semapps_coographie.git
 ### Build and start the containers
 
 ```
-make build
-make start
+make build-prod
+make start-prod
 ```
 
 ## Maintenance
