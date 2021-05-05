@@ -31,7 +31,7 @@ RUN ./initialize.sh
 
 RUN npm install
 
-RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.sbg.cloud.ovh.net >> ~/.ssh/known_hosts
+RUN mkdir ~/.ssh && touch ~/.ssh/known_hosts && ssh-keyscan gateways.storage.gra.cloud.ovh.net >> ~/.ssh/known_hosts
 
 COPY ./ecosystem.config.js /app
 COPY ./app /app
