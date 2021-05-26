@@ -26,7 +26,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
 
   fuseki:
-    image: stain/jena-fuseki:3.10.0
+    image: semapps/jena-fuseki-webacl
     container_name: fuseki
     volumes:
       - ./data/fuseki:/fuseki
@@ -35,21 +35,6 @@ services:
       - "3030:3030"
     expose:
       - "3030"
-    networks:
-      - semapps
-    environment:
-      ADMIN_PASSWORD: "admin"
-
-  fuseki-acl:
-    image: semapps/jena-fuseki-webacl
-    container_name: fuseki-acl
-    volumes:
-      - ./data/fuseki-acl:/fuseki
-      - ./data/staging-acl:/staging
-    ports:
-      - "3040:3030"
-    expose:
-      - "3040"
     networks:
       - semapps
     environment:
@@ -87,18 +72,18 @@ services:
     build:
       context: ./middleware-dev
       args:
-        - SELECTED_BRANCH=next
+        - SELECTED_BRANCH=master
         - SELECTED_DIR=src/middleware/boilerplates/pair-ldp-server
     container_name: middleware-dev
     depends_on:
-      - fuseki-acl
+      - fuseki
       - redis
     volumes:
       - ./middleware-dev/logs:/app/logs
       - ./middleware-dev/actors:/app/actors
       - ./middleware-dev/jwt:/app/jwt
       - ./middleware-dev/uploads:/app/uploads
-      - ./data/fuseki-acl/backups:/app/fuseki-backups # Needed to backup fuseki datasets
+      - ./data/fuseki/backups:/app/fuseki-backups # Needed to backup fuseki datasets
     networks:
       - semapps
     ports:
